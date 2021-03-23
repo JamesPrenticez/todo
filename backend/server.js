@@ -5,8 +5,11 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const PORT = 4000;
 
+const todosRouter = require("./routes/todos");
+
 app.use(cors());
 app.use(bodyParser.json());
+app.use("/todos", todosRouter);
 
 mongoose.connect("mongodb://127.0.0.1:27017/tasks", { useNewUrlParser: true });
 const connection = mongoose.connection;
